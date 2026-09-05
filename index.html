@@ -1,3 +1,497 @@
-<h1>Hello MRA Family</h1>
-<h2>Welcome To My Blank Site,It's Just an <strong>example</strong> for MRA_Github_Course 1400</h2>
-<h3>Sun | 22:30</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mersad Masoud — Embedded &amp; Robotics Software Engineer</title>
+<meta name="description" content="Embedded software engineer working on the runtime platform of an L4 autonomous driving stack — ROS 2, C++, Linux. Previously robotics and industrial IoT lead.">
+<meta name="author" content="Mersad Masoud">
+<meta property="og:title" content="Mersad Masoud — Embedded &amp; Robotics Software Engineer">
+<meta property="og:description" content="I build the runtime layer of autonomous systems: component lifecycle management, fault and health monitoring, recording and replay.">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://github.com/mersious.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b1220'/><text y='68' x='50' text-anchor='middle' font-size='54' font-family='monospace' fill='%2338bdf8'>M</text></svg>">
+<script>
+  // applied before paint so a saved theme never flashes the wrong colours
+  try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<style>
+  :root{
+    --bg:#f7f8fa; --bg-soft:#ffffff; --line:#e3e6ec;
+    --ink:#10141c; --ink-2:#4a5262; --ink-3:#767f92;
+    --accent:#0369a1; --accent-soft:#e0f2fe; --glow:rgba(3,105,161,.10);
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    --radius:14px; --maxw:1000px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0a0e16; --bg-soft:#111725; --line:#1f2937;
+      --ink:#e8edf6; --ink-2:#a3adc0; --ink-3:#6f7b91;
+      --accent:#38bdf8; --accent-soft:#0d2637; --glow:rgba(56,189,248,.12);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0a0e16; --bg-soft:#111725; --line:#1f2937;
+    --ink:#e8edf6; --ink-2:#a3adc0; --ink-3:#6f7b91;
+    --accent:#38bdf8; --accent-soft:#0d2637; --glow:rgba(56,189,248,.12);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+
+  /* ---------- top bar ---------- */
+  header.top{
+    position:sticky; top:0; z-index:20;
+    backdrop-filter:saturate(180%) blur(12px);
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom:1px solid var(--line);
+  }
+  .top .wrap{display:flex; align-items:center; gap:20px; height:58px}
+  .brand{font-family:var(--mono); font-weight:600; letter-spacing:-.02em; color:var(--ink)}
+  .brand:hover{text-decoration:none; color:var(--accent)}
+  nav.links{margin-left:auto; display:flex; gap:22px; align-items:center}
+  nav.links a{color:var(--ink-2); font-size:14.5px}
+  nav.links a:hover{color:var(--accent); text-decoration:none}
+  #theme{
+    border:1px solid var(--line); background:var(--bg-soft); color:var(--ink-2);
+    width:32px; height:32px; border-radius:9px; cursor:pointer;
+    font-size:15px; line-height:1; display:grid; place-items:center; padding:0;
+  }
+  #theme:hover{color:var(--accent); border-color:var(--accent)}
+  @media(max-width:700px){ nav.links a[data-optional]{display:none} }
+
+  /* ---------- hero ---------- */
+  .hero{padding:74px 0 56px; position:relative; overflow:hidden}
+  .hero::before{
+    content:""; position:absolute; inset:-40% 40% 40% -20%;
+    background:radial-gradient(closest-side, var(--glow), transparent);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative}
+  .hero-grid{display:flex; gap:38px; align-items:flex-start}
+  .avatar{
+    width:104px; height:104px; border-radius:20px; flex:none; position:relative; overflow:hidden;
+    border:1px solid var(--line); background:var(--bg-soft);
+    display:grid; place-items:center;
+    font-family:var(--mono); font-size:30px; font-weight:600; color:var(--accent); letter-spacing:.04em;
+  }
+  .avatar img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 10px;
+  }
+  h1{font-size:clamp(2.1rem,5vw,3rem); line-height:1.1; letter-spacing:-.03em; margin:0 0 12px}
+  .tagline{font-size:clamp(1.05rem,2.4vw,1.28rem); color:var(--ink); margin:0 0 18px; max-width:46ch}
+  .lede{color:var(--ink-2); max-width:62ch; margin:0 0 26px}
+  .lede strong{color:var(--ink); font-weight:600}
+
+  .cta{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:22px}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border-radius:10px;
+    border:1px solid var(--line); background:var(--bg-soft); color:var(--ink);
+    font-size:14.5px; font-weight:500; transition:.16s;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent); text-decoration:none; transform:translateY(-1px)}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+  .btn.primary:hover{color:#fff; opacity:.9}
+
+  .facts{display:flex; flex-wrap:wrap; gap:8px}
+  .chip{
+    font-family:var(--mono); font-size:12.5px; color:var(--ink-2);
+    border:1px solid var(--line); background:var(--bg-soft);
+    padding:4px 10px; border-radius:999px;
+  }
+  .chip b{color:var(--ink); font-weight:600}
+  @media(max-width:760px){ .hero-grid{flex-direction:column; gap:22px} .avatar{width:84px;height:84px} }
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0; border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:30px}
+  .sec-num{font-family:var(--mono); font-size:12.5px; color:var(--ink-3); letter-spacing:.1em}
+  h2{font-size:1.5rem; letter-spacing:-.02em; margin:6px 0 8px}
+  .sec-head p{color:var(--ink-2); margin:0; max-width:64ch}
+
+  .grid{display:grid; gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:860px){ .g3{grid-template-columns:1fr 1fr} }
+  @media(max-width:640px){ .g3,.g2{grid-template-columns:1fr} }
+
+  .card{
+    background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px; transition:.18s;
+  }
+  .card:hover{border-color:color-mix(in srgb, var(--accent) 45%, var(--line)); transform:translateY(-2px)}
+  .card h3{margin:0 0 8px; font-size:1.02rem; letter-spacing:-.01em}
+  .card p{margin:0; color:var(--ink-2); font-size:14.5px}
+  .card .kicker{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent); display:block; margin-bottom:10px;
+  }
+
+  /* project cards */
+  .proj{display:flex; flex-direction:column; gap:12px}
+  .proj .top-row{display:flex; align-items:baseline; gap:10px; justify-content:space-between}
+  .proj .status{
+    font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-3); border:1px solid var(--line); padding:2px 8px; border-radius:999px; white-space:nowrap;
+  }
+  .proj .status.live{color:var(--accent); border-color:color-mix(in srgb,var(--accent) 40%, var(--line))}
+  .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto}
+  .tag{font-family:var(--mono); font-size:11.5px; color:var(--ink-3); background:var(--bg); border:1px solid var(--line); padding:2px 8px; border-radius:6px}
+
+  /* timeline */
+  .tl{position:relative; padding-left:26px}
+  .tl::before{content:""; position:absolute; left:6px; top:8px; bottom:8px; width:1px; background:var(--line)}
+  .job{position:relative; padding-bottom:34px}
+  .job:last-child{padding-bottom:0}
+  .job::before{
+    content:""; position:absolute; left:-24px; top:8px; width:9px; height:9px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent);
+  }
+  .job .when{font-family:var(--mono); font-size:12.5px; color:var(--ink-3)}
+  .job h3{margin:3px 0 2px; font-size:1.08rem; letter-spacing:-.01em}
+  .job .where{color:var(--ink-2); font-size:14.5px; margin:0 0 12px}
+  .job ul{margin:0; padding-left:18px; color:var(--ink-2); font-size:14.7px}
+  .job li{margin-bottom:7px}
+  .job li strong{color:var(--ink); font-weight:600}
+
+  /* skills */
+  .skill-row{display:grid; grid-template-columns:190px 1fr; gap:16px; padding:14px 0; border-bottom:1px solid var(--line)}
+  .skill-row:last-child{border-bottom:0}
+  .skill-row dt{font-family:var(--mono); font-size:13px; color:var(--ink-3); letter-spacing:.02em; padding-top:2px}
+  .skill-row dd{margin:0; display:flex; flex-wrap:wrap; gap:6px}
+  @media(max-width:640px){ .skill-row{grid-template-columns:1fr; gap:8px} }
+
+  /* contact */
+  .contact-box{
+    background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius);
+    padding:32px; text-align:center;
+  }
+  .contact-box h2{margin-top:0}
+  .contact-box p{color:var(--ink-2); max-width:52ch; margin:0 auto 22px}
+
+  footer{padding:30px 0 46px; color:var(--ink-3); font-size:13.5px}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between}
+  footer a{color:var(--ink-3)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">mersad<span style="color:var(--accent)">.</span>dev</a>
+    <nav class="links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#toolbox" data-optional>Toolbox</a>
+      <a href="#beyond" data-optional>Beyond code</a>
+      <a href="#contact">Contact</a>
+      <button id="theme" type="button" title="Switch light / dark" aria-label="Switch light or dark theme">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="avatar" aria-hidden="true">MM<img src="https://github.com/mersious.png" alt="" width="104" height="104" loading="lazy" onerror="this.remove()"></div>
+      <div>
+        <p class="eyebrow">Embedded &amp; Robotics Software Engineer</p>
+        <h1>Mersad Masoud</h1>
+        <p class="tagline">I build the runtime layer that keeps autonomous systems alive, observable, and reproducible.</p>
+        <p class="lede">
+          Right now that means the platform software of an <strong>L4 autonomous driving stack</strong>:
+          component lifecycle management, fault and health monitoring, and recording that lets a real drive
+          be replayed exactly as it happened — written in <strong>C++ on ROS&nbsp;2 and Linux</strong>.
+          Before that I led embedded development for a connected-vehicle fleet platform and a
+          worker-safety system deployed in an underground mine. Robotics since 2018, and a teacher long
+          before that.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:mersadmasoud@gmail.com">Get in touch</a>
+          <a class="btn" href="https://github.com/mersious" rel="me">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/mersad-masoud" rel="me">LinkedIn</a>
+        </div>
+        <div class="facts">
+          <span class="chip"><b>7+</b> years in embedded &amp; robotics</span>
+          <span class="chip">C++ · Python · ROS 2 · Linux</span>
+          <span class="chip">Open to roles in <b>Sweden / EU</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOCUS ================= -->
+  <section id="focus">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <h2>What I'm building right now</h2>
+        <p>Three problems I work on daily inside the SoC department of an automotive company, on a production L4 stack.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card">
+          <span class="kicker">Self-adaptive runtime</span>
+          <h3>Execution Manager</h3>
+          <p>A ROS 2 component lifecycle manager structured as a <em>MAPE-K</em> feedback loop. Its runtime monitor grew from passive health checks into active channel monitoring, then split into separate health, diagnostic and guardian nodes as the requirements matured.</p>
+        </div>
+        <div class="card">
+          <span class="kicker">Safety &amp; diagnostics</span>
+          <h3>Fault and alarm mechanism</h3>
+          <p>A mutex-guarded persistent fault registry keyed by node and error code, with lifecycle state derived from first-seen and last-seen timestamps, and three recovery models for terminal, transient and channel faults — plus a 1&nbsp;Hz warning heartbeat for vehicle-facing consumers.</p>
+        </div>
+        <div class="card">
+          <span class="kicker">Reproducibility</span>
+          <h3>Recording &amp; replay</h3>
+          <p>Subprocess lifecycle management for session recording (fork/execl, PID and atomic state tracking, clean SIGINT shutdown) with time-based splitting, topic filtering, and timestamped configuration and calibration snapshots — so a recorded drive can be re-simulated exactly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <h2>Selected work</h2>
+        <p>Systems I owned end to end — from the sensor on the board to the dashboard someone actually watches.</p>
+      </div>
+      <div class="grid g2">
+
+        <article class="card proj">
+          <div class="top-row"><h3>Mashinak</h3><span class="status">In progress</span></div>
+          <p>A personal project I'm building in the open. Details and the repository are on their way — this page will link to it as soon as the first version ships.</p>
+          <div class="tags"><span class="tag">side project</span><span class="tag">coming soon</span></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top-row"><h3>Connected-worker mine safety system</h3><span class="status live">Deployed</span></div>
+          <p>A smart helmet and wristband for an underground lead-and-zinc mine: FreeRTOS-based UWB positioning by two-way ranging at <strong>30&nbsp;cm accuracy</strong>, LoRaWAN telemetry, and vital-sign monitoring streamed to a central dashboard. Heart-rate and blood-oxygen measurement improved by 25% under sustained physical movement. Three hardware generations, each shaped by on-site feedback.</p>
+          <div class="tags"><span class="tag">FreeRTOS</span><span class="tag">UWB</span><span class="tag">LoRaWAN</span><span class="tag">PCB design</span><span class="tag">field-deployed</span></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top-row"><h3>Connected-vehicle fleet platform</h3><span class="status live">Deployed</span></div>
+          <p>An in-vehicle tracker (ESP32, IMU/GNSS fusion, cellular modem) and the MQTT telemetry path feeding a real-time operator dashboard, with collision prediction and drowsiness detection. QoS levels and link behaviour were tuned by driving a fixed intercity route more than twenty times — most failures traced back to antenna sensitivity and counterfeit modules rather than to software.</p>
+          <div class="tags"><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">sensor fusion</span><span class="tag">field testing</span></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top-row"><h3>Around View Monitor &amp; camera pipeline</h3><span class="status live">Shipped</span></div>
+          <p>Camera bring-up on a Horizon Robotics J6 E/M SoC — H.264 parsing and hardware-accelerated undistortion — plus a standalone library that stitches four live camera feeds into a real-time bird's-eye view, inside strict performance and safety budgets.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">computer vision</span><span class="tag">Horizon J6</span><span class="tag">real-time</span></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top-row"><h3>Calibration visualisation in Foxglove</h3><span class="status live">Shipped</span></div>
+          <p>Raw camera and LiDAR calibration parameters turned into 3D scene geometry, so sensor placement on the vehicle can be seen rather than inferred from a YAML file — a small tool that quietly removed a whole class of debugging mistakes.</p>
+          <div class="tags"><span class="tag">ROS 2</span><span class="tag">Foxglove</span><span class="tag">tooling</span></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top-row"><h3>Wheeled humanoid robot platform</h3><span class="status">Research</span></div>
+          <p>Two generations of a small humanoid robot: bare-metal firmware driving 16 servos and 4 DC encoder motors with fused onboard sensing for real-time obstacle avoidance, later used as a platform for on-device AI services. The first generation became my bachelor's thesis, graded 20/20.</p>
+          <div class="tags"><span class="tag">bare-metal</span><span class="tag">sensor fusion</span><span class="tag">on-device AI</span></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <h2>Experience</h2>
+        <p>Promoted into a lead role at each of my two previous employers.</p>
+      </div>
+      <div class="tl">
+
+        <div class="job">
+          <div class="when">Jul 2025 — Present</div>
+          <h3>Embedded Software Engineer, SoC department</h3>
+          <p class="where">Software Motion Co., Ltd. — Shanghai-based, remote</p>
+          <ul>
+            <li>Own the <strong>Execution Manager</strong> and the <strong>fault and alarm mechanism</strong> of an L4 autonomous stack, from architecture through several rounds of single-responsibility refactoring as requirements evolved.</li>
+            <li>Built session recording and calibration snapshotting that makes recorded drives <strong>reproducibly replayable</strong>, and a Qt5 desktop tool for remote deployment, execution and artifact collection over SSH.</li>
+            <li>Ran an independent review of that tool and found a <strong>mutex race on a shared message queue</strong> and a dangling raw-pointer capture inside a Qt log handler.</li>
+            <li>Evaluated OTA update servers and deployed <strong>Eclipse hawkBit</strong> in Docker with MySQL and RabbitMQ, validating a colleague's C++ client against all 11 DDI REST endpoints.</li>
+            <li>Daily stand-ups and weekly goal cycles with a distributed team across two countries, working in English throughout.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="when">Dec 2021 — Jun 2025</div>
+          <h3>Robotics &amp; Embedded Engineer → Embedded Systems Lead</h3>
+          <p class="where">ZLab, FANAP Advanced Technologies Laboratory — Pardis Technology Park, Tehran</p>
+          <ul>
+            <li>Led embedded development for a <strong>connected-vehicle fleet platform</strong> and a <strong>connected-worker safety system</strong> deployed in an underground mine.</li>
+            <li>Reduced UART communication latency by <strong>50%</strong> on the embedded platform; improved wearable vital-sign measurement reliability by 25% under movement.</li>
+            <li>Technical lead coordinating front-end, back-end, AI, Android and industrial-design teams; ran weekly planning in Jira and set up CI for automated versioning and changelog generation.</li>
+            <li>Built embedded software for a self-checkout smart cart — camera, weight and colour sensor fusion behind a real-time state machine.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="when">Nov 2018 — Feb 2022</div>
+          <h3>Robotics Instructor → Competition Coach → Academy Head</h3>
+          <p class="where">Mositto Innovation Center — Tehran</p>
+          <ul>
+            <li>Taught and mentored <strong>150+ students aged 10–22</strong>, and co-developed the robotics and programming curriculum from scratch.</li>
+            <li>Coached teams to <strong>two third-place finishes at RoboCup Asia-Pacific 2021</strong> (Aichi, Japan), in the Primary and Secondary divisions.</li>
+            <li>Redesigned a rescue line-follower's sensor array using sensor fusion, cutting the sensor count from 16 to 7 with no loss of performance.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TOOLBOX ================= -->
+  <section id="toolbox">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <h2>Toolbox</h2>
+        <p>What I reach for. The first item in each row is where I'm strongest.</p>
+      </div>
+      <dl style="margin:0">
+        <div class="skill-row">
+          <dt>Languages</dt>
+          <dd>
+            <span class="tag">C++</span><span class="tag">Embedded C</span><span class="tag">Python</span><span class="tag">Bash</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Middleware &amp; runtime</dt>
+          <dd>
+            <span class="tag">ROS 2</span><span class="tag">DDS</span><span class="tag">FreeRTOS</span><span class="tag">Qt5</span><span class="tag">Docker</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Architecture</dt>
+          <dd>
+            <span class="tag">MAPE-K / self-adaptive systems</span><span class="tag">component lifecycle</span><span class="tag">SOLID</span><span class="tag">design patterns</span><span class="tag">real-time constraints</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Networking &amp; telemetry</dt>
+          <dd>
+            <span class="tag">MQTT</span><span class="tag">REST</span><span class="tag">SSH / libssh</span><span class="tag">LoRaWAN</span><span class="tag">UWB two-way ranging</span><span class="tag">CAN</span><span class="tag">BLE</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Tooling &amp; CI</dt>
+          <dd>
+            <span class="tag">Linux</span><span class="tag">CMake</span><span class="tag">colcon</span><span class="tag">Git</span><span class="tag">GitLab CI</span><span class="tag">Jenkins</span><span class="tag">GDB</span><span class="tag">gtest</span><span class="tag">Foxglove</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Platforms</dt>
+          <dd>
+            <span class="tag">Horizon Robotics J6 E/M</span><span class="tag">MDC610</span><span class="tag">ARM</span><span class="tag">NVIDIA Jetson</span><span class="tag">ESP32</span><span class="tag">Raspberry Pi</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Ways of working</dt>
+          <dd>
+            <span class="tag">Scrum</span><span class="tag">code review</span><span class="tag">merge-request workflow</span><span class="tag">cross-timezone teams</span><span class="tag">technical writing</span>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ================= BEYOND ================= -->
+  <section id="beyond">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <h2>Beyond the code</h2>
+        <p>The part of the work that isn't in a repository.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card">
+          <span class="kicker">Teaching</span>
+          <h3>150+ students mentored</h3>
+          <p>Four years of robotics teaching, from ten-year-olds building their first line follower to university students preparing for RoboCup. It is where I learned to explain a system to someone who does not yet share my vocabulary.</p>
+        </div>
+        <div class="card">
+          <span class="kicker">Open education</span>
+          <h3>Life · Robots · Liberty</h3>
+          <p>A free Persian-language robotics education series on YouTube, started for a simple reason: no comparable free resource existed in Persian, and the people who needed it most could not pay for one.</p>
+        </div>
+        <div class="card">
+          <span class="kicker">Education</span>
+          <h3>B.Sc. Robotics Engineering</h3>
+          <p>Azad University, Central Tehran Branch (2016–2022). Four-year accredited programme, 154 credits. <strong>First rank in my cohort</strong>, thesis graded 20/20 — a wheeled humanoid robot as a platform for AI-based services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <span class="sec-num">06</span>
+        <h2>Let's talk</h2>
+        <p>I'm open to embedded, robotics and autonomous-systems roles in Sweden and the wider EU — and always happy to talk about ROS 2 runtime design, fault handling, or anything that has to keep running when nobody is watching.</p>
+        <div class="cta" style="justify-content:center">
+          <a class="btn primary" href="mailto:mersadmasoud@gmail.com">mersadmasoud@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/mersad-masoud">LinkedIn</a>
+          <a class="btn" href="https://github.com/mersious">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Mersad Masoud — built by hand, no framework.</span>
+    <span><a href="https://github.com/mersious/mersious.github.io">Source on GitHub</a></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function current() {
+      return root.getAttribute('data-theme') || (prefersDark ? 'dark' : 'light');
+    }
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+    } catch (e) {}
+
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+
+</body>
+</html>
