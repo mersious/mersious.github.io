@@ -1,3 +1,684 @@
-<h1>Hello MRA Family</h1>
-<h2>Welcome To My Blank Site,It's Just an <strong>example</strong> for MRA_Github_Course 1400</h2>
-<h3>Sun | 22:30</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mersad Masoud, Embedded &amp; Robotics Engineer</title>
+<meta name="description" content="Embedded engineer working on the runtime layer of an L4 autonomous driving stack in C++ on ROS 2 and Linux. Previously robotics and industrial IoT lead, and a robotics instructor before that.">
+<meta name="author" content="Mersad Masoud">
+<meta property="og:title" content="Mersad Masoud, Embedded &amp; Robotics Engineer">
+<meta property="og:description" content="I build the runtime layer that keeps autonomous systems alive, observable, and reproducible.">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://github.com/mersious.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f4f1ea'/><rect x='6' y='6' width='88' height='88' fill='none' stroke='%23c1440e' stroke-width='4'/><text y='70' x='50' text-anchor='middle' font-size='52' font-family='Georgia,serif' fill='%231a1a1a'>M</text></svg>">
+<script>
+  // applied before first paint so a saved theme never flashes the wrong paper
+  try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<style>
+  /* ============================================================
+     Lab notebook.  Paper, ink, a faint grid, and red annotations.
+     Two typefaces: a book serif for prose, a mono for anything
+     that would have been stamped, measured or filed.
+     ============================================================ */
+  :root{
+    --paper:#f4f1ea; --paper-2:#fbfaf6; --paper-3:#eeebe2;
+    --grid:rgba(26,26,26,.085);
+    --ink:#1a1a1a; --ink-2:#524d44; --ink-3:#8a8377;
+    --rule:#d6cfc0; --rule-strong:#b9b0a0;
+    --accent:#c1440e; --accent-soft:rgba(193,68,14,.09);
+    --mark:rgba(226,182,54,.38);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,"DejaVu Sans Mono",Consolas,monospace;
+    --maxw:960px; --gutter:96px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#14130f; --paper-2:#1b1a15; --paper-3:#100f0c;
+      --grid:rgba(234,229,216,.07);
+      --ink:#eae5d8; --ink-2:#b0a897; --ink-3:#7e7767;
+      --rule:#2f2b23; --rule-strong:#454034;
+      --accent:#e2673a; --accent-soft:rgba(226,103,58,.13);
+      --mark:rgba(226,180,70,.20);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#14130f; --paper-2:#1b1a15; --paper-3:#100f0c;
+    --grid:rgba(234,229,216,.07);
+    --ink:#eae5d8; --ink-2:#b0a897; --ink-3:#7e7767;
+    --rule:#2f2b23; --rule-strong:#454034;
+    --accent:#e2673a; --accent-soft:rgba(226,103,58,.13);
+    --mark:rgba(226,180,70,.20);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; color:var(--ink);
+    background-color:var(--paper);
+    background-image:radial-gradient(var(--grid) 1px, transparent 1px);
+    background-size:22px 22px;
+    background-position:-1px -1px;
+    font-family:var(--serif); font-size:17px; line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+
+  a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--accent); padding-bottom:1px}
+  a:hover{color:var(--accent)}
+
+  /* small caps mono label, used everywhere a stamp would be */
+  .stamp{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--ink-3);
+  }
+  .mark{background:linear-gradient(transparent 58%, var(--mark) 58%); padding:0 1px}
+  .fig{font-family:var(--mono); font-size:11.5px; color:var(--accent); letter-spacing:.1em}
+
+  /* ---------------- masthead ---------------- */
+  header.top{
+    position:sticky; top:0; z-index:20;
+    background:var(--paper);
+    border-bottom:3px double var(--rule-strong);
+  }
+  .top .wrap{display:flex; align-items:center; gap:18px; height:54px}
+  .brand{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--ink); border-bottom:0;
+  }
+  .brand:hover{color:var(--accent)}
+  nav.links{margin-left:auto; display:flex; gap:20px; align-items:center}
+  nav.links a{
+    font-family:var(--mono); font-size:12px; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--ink-2); border-bottom:1px solid transparent; padding-bottom:2px;
+  }
+  nav.links a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+  #theme{
+    border:1px solid var(--rule-strong); background:transparent; color:var(--ink-2);
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 8px; cursor:pointer;
+  }
+  #theme:hover{color:var(--accent); border-color:var(--accent)}
+  @media(max-width:760px){ nav.links a[data-optional]{display:none} }
+
+  /* ---------------- title block ---------------- */
+  .titleblock{padding:56px 0 44px; border-bottom:1px solid var(--rule)}
+  .docline{
+    display:flex; flex-wrap:wrap; gap:10px 22px; margin-bottom:30px;
+  }
+  h1{
+    font-size:clamp(2.5rem,7vw,4.1rem); line-height:1; letter-spacing:-.025em;
+    margin:0 0 6px; font-weight:600;
+  }
+  .h1-sub{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--ink-2); margin:0 0 30px; padding-bottom:22px; border-bottom:1px solid var(--rule);
+  }
+  .thesis{
+    font-size:clamp(1.25rem,3vw,1.6rem); line-height:1.42; margin:0 0 8px; max-width:24ch;
+  }
+  .lede{color:var(--ink-2); max-width:60ch; margin:20px 0 0; font-size:16.5px}
+  .lede strong{color:var(--ink); font-weight:600}
+
+  /* two-column title block: prose left, spec table right */
+  .tb-grid{display:grid; grid-template-columns:1.25fr 1fr; gap:48px; align-items:center}
+  @media(max-width:820px){ .tb-grid{grid-template-columns:1fr; gap:34px} }
+
+  /* the red margin annotation: the notebook's whole personality */
+  .note{
+    font-family:var(--mono); font-size:12px; line-height:1.5; color:var(--accent);
+    display:block; margin-top:14px; padding-left:20px; position:relative;
+    transform:rotate(-.55deg); transform-origin:left center; max-width:34ch;
+  }
+  .note::before{content:"↳"; position:absolute; left:0; top:0}
+
+  /* --- the plate: a hand-drawn figure, as if sketched in the margin --- */
+  .plate{margin:0}
+  .plate svg{width:100%; height:auto; display:block}
+  .plate figcaption{margin-top:6px; text-align:center}
+  .plate .ink-s{stroke:var(--ink); stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round}
+  .plate .ink-s.thin{stroke-width:1}
+  .plate .dashed{stroke-dasharray:5 4}
+  .plate .solid-fill{fill:var(--accent-soft); stroke:var(--ink); stroke-width:1.4}
+  .plate .acc-s{stroke:var(--accent); stroke-width:1.1; stroke-linecap:round; fill:none}
+  .plate .acc-t{fill:var(--accent); font-family:var(--mono); font-size:9.5px; letter-spacing:.04em}
+  .plate .acc-t.sm{font-size:8.5px}
+  .plate .lbl{fill:var(--ink); font-family:var(--mono); font-size:9.5px; letter-spacing:.09em}
+  .plate .lbl.sm{fill:var(--ink-3); font-size:7.4px; letter-spacing:0}
+
+  /* spec table, like the header of a datasheet */
+  .spec{
+    border:1px solid var(--rule-strong); background:var(--paper-2); margin:38px 0 0;
+    display:grid; grid-template-columns:repeat(3,1fr);
+  }
+  .spec .row{display:grid; grid-template-columns:82px 1fr; border-bottom:1px solid var(--rule); border-right:1px solid var(--rule)}
+  .spec .row:nth-child(3n){border-right:0}
+  .spec .row:nth-last-child(-n+3){border-bottom:0}
+  @media(max-width:820px){
+    .spec{grid-template-columns:1fr}
+    .spec .row{border-right:0}
+    .spec .row:nth-last-child(-n+3){border-bottom:1px solid var(--rule)}
+    .spec .row:last-child{border-bottom:0}
+  }
+  .spec dt{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-3); padding:9px 10px; border-right:1px solid var(--rule);
+    background:var(--paper-3);
+  }
+  .spec dd{margin:0; padding:9px 12px; font-family:var(--mono); font-size:12.5px; color:var(--ink-2); line-height:1.5}
+  .spec dd b{color:var(--ink); font-weight:600}
+  .spec-cap{margin-top:8px; text-align:right}
+
+  .contactline{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px}
+  .contactline a{
+    font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    border:1px solid var(--rule-strong); padding:7px 13px; color:var(--ink-2);
+  }
+  .contactline a:hover{border-color:var(--accent); color:var(--accent); background:var(--accent-soft)}
+  .contactline a.primary{border-color:var(--accent); color:var(--accent)}
+
+  /* ---------------- sections with a figure gutter ---------------- */
+  section{padding:52px 0; border-bottom:1px solid var(--rule)}
+  .sec{display:grid; grid-template-columns:var(--gutter) 1fr; gap:26px; align-items:start}
+  @media(max-width:820px){ .sec{grid-template-columns:1fr; gap:14px} }
+  .gut{position:sticky; top:82px}
+  .gut .num{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; color:var(--accent); display:block}
+  .gut .rule{height:1px; background:var(--accent); margin-top:8px; width:34px}
+  @media(max-width:820px){ .gut{position:static} .gut .rule{display:none} }
+
+  h2{font-size:1.62rem; letter-spacing:-.015em; margin:0 0 8px; font-weight:600}
+  .sec-intro{color:var(--ink-2); margin:0 0 28px; max-width:62ch; font-size:16px}
+
+  /* ---------------- specimen boxes ---------------- */
+  .grid{display:grid; gap:18px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:900px){ .g3{grid-template-columns:1fr 1fr} }
+  @media(max-width:660px){ .g3,.g2{grid-template-columns:1fr} }
+
+  .box{
+    background:var(--paper-2); border:1px solid var(--rule-strong);
+    padding:18px 18px 16px; position:relative; display:flex; flex-direction:column; gap:9px;
+  }
+  .box.wide{grid-column:1 / -1}
+  .box.wide .note{margin-top:2px}
+  .box::after{
+    content:""; position:absolute; right:-1px; bottom:-1px; width:16px; height:16px;
+    background:linear-gradient(225deg, var(--paper) 50%, var(--rule-strong) 50%);
+  }
+  .box .figtag{
+    display:flex; justify-content:space-between; align-items:baseline; gap:10px;
+    border-bottom:1px solid var(--rule); padding-bottom:8px; margin-bottom:2px;
+  }
+  .box h3{margin:0; font-size:1.08rem; font-weight:600; letter-spacing:-.01em}
+  .box p{margin:0; color:var(--ink-2); font-size:15.5px; line-height:1.6}
+  .box p strong{color:var(--ink); font-weight:600}
+  .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:auto; padding-top:6px}
+  .tag{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; color:var(--ink-3);
+    border:1px solid var(--rule); padding:2px 7px;
+  }
+  .status{
+    font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-3); white-space:nowrap; border:1px solid var(--rule); padding:2px 6px;
+  }
+  .status.live{color:var(--accent); border-color:var(--accent)}
+  code{font-family:var(--mono); font-size:.86em; background:var(--paper-3); border:1px solid var(--rule); padding:0 4px}
+
+  /* ---------------- ledger (experience) ---------------- */
+  .entry{padding:22px 0; border-bottom:1px solid var(--rule)}
+  .entry:first-child{padding-top:0}
+  .entry:last-child{border-bottom:0; padding-bottom:0}
+  .entry .head{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 16px; margin-bottom:4px}
+  .entry h3{margin:0; font-size:1.16rem; font-weight:600; letter-spacing:-.01em}
+  .entry .when{font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; color:var(--accent); margin-left:auto}
+  .entry .where{color:var(--ink-3); font-family:var(--mono); font-size:12px; margin:0 0 12px}
+  .entry ul{margin:0; padding-left:0; list-style:none; color:var(--ink-2); font-size:15.7px}
+  .entry li{margin-bottom:8px; padding-left:20px; position:relative}
+  .entry li::before{
+    content:"\2013"; position:absolute; left:0; color:var(--rule-strong); font-family:var(--mono);
+  }
+  .entry li strong{color:var(--ink); font-weight:600}
+
+  /* ---------------- toolbox ---------------- */
+  .kit{border-top:1px solid var(--rule)}
+  .kit .row{display:grid; grid-template-columns:170px 1fr; gap:18px; padding:12px 0; border-bottom:1px solid var(--rule)}
+  .kit dt{
+    font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-3); padding-top:4px;
+  }
+  .kit dd{margin:0; display:flex; flex-wrap:wrap; gap:5px}
+  @media(max-width:660px){ .kit .row{grid-template-columns:1fr; gap:8px} }
+
+  /* ---------------- colophon ---------------- */
+  .closing{padding:52px 0}
+  .closing h2{font-size:1.9rem; margin-bottom:10px}
+  .closing p{color:var(--ink-2); max-width:56ch; margin:0 0 22px}
+  footer{
+    border-top:3px double var(--rule-strong); padding:20px 0 40px;
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; color:var(--ink-3);
+  }
+  footer .wrap{display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between}
+  footer a{border-bottom-color:var(--rule-strong); color:var(--ink-3)}
+  footer a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Mersad Masoud</a>
+    <nav class="links">
+      <a href="#work">Work</a>
+      <a href="#record">Record</a>
+      <a href="#kit" data-optional>Kit</a>
+      <a href="#teaching" data-optional>Teaching</a>
+      <a href="#contact">Contact</a>
+      <button id="theme" type="button" title="Switch paper">Paper</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ==================== TITLE BLOCK ==================== -->
+  <div class="titleblock">
+    <div class="wrap">
+      <div class="docline">
+        <span class="stamp">Embedded &amp; Robotics Engineer</span>
+        <span class="stamp">Est. 2018</span>
+        <span class="stamp">Tehran, working remote</span>
+      </div>
+
+      <h1>Mersad Masoud</h1>
+      <p class="h1-sub">C++ · ROS 2 · Linux · Autonomous systems</p>
+
+      <div class="tb-grid">
+        <div>
+          <p class="thesis">I build the runtime layer that keeps autonomous systems alive, observable, and reproducible.</p>
+          <span class="note">the part nobody demos, and the first thing you miss at 2 a.m. on a test track</span>
+
+          <p class="lede">
+            Right now that means the platform software of an <strong>L4 autonomous driving stack</strong>:
+            component lifecycle management, fault and health monitoring, and recording that lets a real
+            drive be replayed exactly as it happened. Before that I led embedded development at ZLab for
+            a connected-vehicle fleet platform, a worker-safety system deployed in an underground mine,
+            and two generations of a humanoid robot. I have been building robots since 2018, and teaching
+            people to build them for almost as long.
+          </p>
+
+          <div class="contactline">
+            <a class="primary" href="mailto:mersadmasoud@gmail.com">Email</a>
+            <a href="https://github.com/mersious" rel="me">GitHub</a>
+            <a href="https://www.linkedin.com/in/mersad-masoud" rel="me">LinkedIn</a>
+          </div>
+        </div>
+
+        <figure class="plate">
+          <svg viewBox="0 0 372 296" role="img" aria-labelledby="figtitle">
+            <title id="figtitle">The Execution Manager as a MAPE-K feedback loop</title>
+            <defs>
+              <filter id="rough" x="-12%" y="-12%" width="124%" height="124%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="2" seed="7" result="n"/>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="1.7" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+              <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,1 L9,5 L0,9" class="ink-s" fill="none"/>
+              </marker>
+              <marker id="ah-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M0,1.5 L9,5 L0,8.5" class="acc-s" fill="none"/>
+              </marker>
+            </defs>
+
+            <g filter="url(#rough)">
+              <!-- enclosure -->
+              <rect x="18" y="26" width="238" height="216" rx="3" class="ink-s dashed" fill="none"/>
+
+              <!-- the loop -->
+              <rect x="42"  y="52"  width="86" height="40" rx="2" class="ink-s" fill="none"/>
+              <rect x="148" y="52"  width="86" height="40" rx="2" class="ink-s" fill="none"/>
+              <rect x="148" y="176" width="86" height="40" rx="2" class="ink-s" fill="none"/>
+              <rect x="42"  y="176" width="86" height="40" rx="2" class="ink-s" fill="none"/>
+              <rect x="94"  y="118" width="88" height="38" rx="2" class="ink-s solid-fill"/>
+
+              <!-- arrows around the loop -->
+              <path d="M128,72 L146,72"   class="ink-s" fill="none" marker-end="url(#ah)"/>
+              <path d="M191,92 L191,174"  class="ink-s" fill="none" marker-end="url(#ah)"/>
+              <path d="M146,196 L130,196" class="ink-s" fill="none" marker-end="url(#ah)"/>
+              <path d="M85,176 L85,94"    class="ink-s" fill="none" marker-end="url(#ah)"/>
+
+              <!-- spokes to knowledge -->
+              <path d="M104,94 L118,116"  class="ink-s thin dashed" fill="none"/>
+              <path d="M172,94 L158,116"  class="ink-s thin dashed" fill="none"/>
+              <path d="M158,158 L172,174" class="ink-s thin dashed" fill="none"/>
+              <path d="M118,158 L104,174" class="ink-s thin dashed" fill="none"/>
+            </g>
+
+            <!-- labels -->
+            <text x="85"  y="70"  class="lbl" text-anchor="middle">MONITOR</text>
+            <text x="85"  y="82"  class="lbl sm" text-anchor="middle">health + channels</text>
+            <text x="191" y="70"  class="lbl" text-anchor="middle">ANALYZE</text>
+            <text x="191" y="82"  class="lbl sm" text-anchor="middle">fault registry</text>
+            <text x="191" y="194" class="lbl" text-anchor="middle">PLAN</text>
+            <text x="191" y="206" class="lbl sm" text-anchor="middle">recovery model</text>
+            <text x="85"  y="194" class="lbl" text-anchor="middle">EXECUTE</text>
+            <text x="85"  y="206" class="lbl sm" text-anchor="middle">restart · stop</text>
+            <text x="138" y="136" class="lbl" text-anchor="middle">KNOWLEDGE</text>
+            <text x="138" y="148" class="lbl sm" text-anchor="middle">artifact log</text>
+
+            <!-- red marginalia -->
+            <text x="20" y="16" class="acc-t">Fig. 1 · Execution Manager</text>
+            <path d="M262,64 C288,66 292,86 276,96" class="acc-s thin" fill="none" marker-end="url(#ah-r)"/>
+            <text x="266" y="58" class="acc-t sm">passive checks</text>
+            <text x="266" y="69" class="acc-t sm">→ active channel</text>
+            <text x="266" y="80" class="acc-t sm">monitoring</text>
+            <text x="262" y="200" class="acc-t sm">3 recovery</text>
+            <text x="262" y="211" class="acc-t sm">models:</text>
+            <text x="262" y="222" class="acc-t sm">terminal ·</text>
+            <text x="262" y="233" class="acc-t sm">transient ·</text>
+            <text x="262" y="244" class="acc-t sm">channel</text>
+            <path d="M256,206 L238,198" class="acc-s thin" fill="none" marker-end="url(#ah-r)"/>
+
+            <!-- dimension line, like a drawing -->
+            <path d="M18,262 L256,262" class="acc-s thin" fill="none" marker-start="url(#ah-r)" marker-end="url(#ah-r)"/>
+            <path d="M18,257 L18,267"   class="acc-s thin"/>
+            <path d="M256,257 L256,267" class="acc-s thin"/>
+            <text x="137" y="278" class="acc-t sm" text-anchor="middle">1 Hz heartbeat + on-change</text>
+          </svg>
+          <figcaption class="stamp">Fig. 1 · redrawn from the real thing</figcaption>
+        </figure>
+      </div>
+
+      <dl class="spec">
+        <div class="row"><dt>Role</dt><dd>Embedded Software Engineer, <b>SoC department</b></dd></div>
+        <div class="row"><dt>Based</dt><dd>Tehran, remote for a Shanghai-based automotive company</dd></div>
+        <div class="row"><dt>Primary</dt><dd><b>C++</b> · Embedded C · Python · Bash</dd></div>
+        <div class="row"><dt>Runtime</dt><dd>ROS 2 · DDS · FreeRTOS · Linux · Docker</dd></div>
+        <div class="row"><dt>Since</dt><dd><b>2018</b> in robotics and embedded systems</dd></div>
+        <div class="row"><dt>Taught</dt><dd><b>150+</b> students, 2018 → 2022</dd></div>
+      </dl>
+      <p class="stamp spec-cap">Table 1 · summary</p>
+    </div>
+  </div>
+
+  <!-- ==================== NOW ==================== -->
+  <section id="now">
+    <div class="wrap sec">
+      <div class="gut"><span class="num">fig. 01</span><div class="rule"></div></div>
+      <div>
+        <h2>On the bench right now</h2>
+        <p class="sec-intro">Three problems I work on daily, inside the SoC department of an automotive company, on a production L4 stack.</p>
+        <div class="grid g3">
+
+          <article class="box">
+            <div class="figtag"><h3>Execution Manager</h3><span class="fig">1a</span></div>
+            <p>A ROS 2 component lifecycle manager structured as a <strong>MAPE-K</strong> feedback loop. Its runtime monitor grew from passive health checks into active channel monitoring, then split into separate health, diagnostic and guardian nodes as the requirements matured.</p>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Fault &amp; alarm mechanism</h3><span class="fig">1b</span></div>
+            <p>A mutex-guarded persistent fault registry keyed by node and error code, with lifecycle state derived from first-seen and last-seen timestamps, and <strong>three recovery models</strong> for terminal, transient and channel faults, plus a 1 Hz warning heartbeat for vehicle-facing consumers.</p>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Recording &amp; replay</h3><span class="fig">1c</span></div>
+            <p>Subprocess lifecycle management for session recording (fork and execl, PID and atomic state tracking, a clean SIGINT and waitpid shutdown) with time-based splitting, topic filtering and timestamped configuration and calibration snapshots, so a recorded drive can be <strong>re-simulated exactly</strong>.</p>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WORK ==================== -->
+  <section id="work">
+    <div class="wrap sec">
+      <div class="gut"><span class="num">fig. 02</span><div class="rule"></div></div>
+      <div>
+        <h2>Specimens</h2>
+        <p class="sec-intro">Systems I owned end to end, from the sensor on the board to the dashboard someone actually watches.</p>
+        <span class="note" style="margin-bottom:22px">"often the problem isn't with the code itself; it's a mischievous micro SD card"</span>
+        <div class="grid g2">
+
+          <article class="box wide">
+            <div class="figtag">
+              <h3><a href="https://mersious.github.io/Mashinak/">Mashinak</a></h3>
+              <span class="status live">Live · MIT</span>
+            </div>
+            <p>
+              An interactive map of what a car does for its driver, from SAE Level 0 to Level 5.
+              A brochure gives you a flat wall of acronyms, ESP and EBA and HAC and TJA, and no way in.
+              Mashinak turns that wall into something you can click through: pick a level, pick a feature,
+              and see what it senses, where the decision is made, what it moves, and which other features
+              it depends on. Every feature is drawn as <strong>senses → decided in → acts through</strong>,
+              which is the part brochures hide. <strong class="mark">AEB does not brake. It asks the ESC unit to brake.</strong>
+            </p>
+            <p>
+              The Global view is pure engineering; EU, US and CN overlay the regulatory regime per level,
+              with rule numbers, so a feature that is mandatory in one market and merely permitted in
+              another says so. State lives in the URL, so <code>#eu/L3/ALKS</code> is a link you can send
+              someone. The whole content set is typed data in <code>src/data/</code>, ids as string-literal
+              unions, which means <strong>a typo in a dependency fails the build</strong> instead of quietly
+              breaking the graph.
+            </p>
+            <span class="note">it exists because engineers join automotive projects every day without ever having been told what ESC actually is</span>
+            <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">SAE J3016</span><span class="tag">UN R157 / GSR</span><span class="tag">data-driven</span><span class="tag">no backend</span></div>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Connected Worker: mine safety</h3><span class="status live">Deployed</span></div>
+            <p>A two-device ecosystem for an underground lead and zinc mine in Zanjan: a smart helmet doing gas, temperature and environmental sensing, and a wristband doing <strong class="mark">UWB positioning at 30 cm</strong> with LoRaWAN telemetry and vital-sign monitoring. Fielded as v1, redesigned from real worker feedback, demonstrated again as v2. The hardest constraint was not radio: the band had to be nearly weightless for people doing heavy physical labour, while motion artifacts corrupted exactly the readings it existed to take.</p>
+            <div class="tags"><span class="tag">FreeRTOS</span><span class="tag">UWB</span><span class="tag">LoRaWAN</span><span class="tag">PCB, 2-4 layer</span><span class="tag">field-deployed</span></div>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Connected Car: fleet management</h3><span class="status live">Deployed</span></div>
+            <p>Technical lead across firmware, back end, AI, front end and Android. I owned the in-vehicle tracker (ESP32, IMU and GNSS fusion, cellular modem) and the MQTT path feeding a real-time dashboard, with collision prediction at intersections and drowsiness detection behind it. QoS and link behaviour were tuned by driving the Pardis to Tehran route <strong class="mark">more than twenty times</strong>. Most failures traced back to GSM antenna sensitivity and counterfeit modules rather than to software.</p>
+            <div class="tags"><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">sensor fusion</span><span class="tag">Kafka</span><span class="tag">field testing</span></div>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>ELF/DWARF signal extractor</h3><span class="status live">Shipped</span></div>
+            <p>A C++ port of a Python DWARF parser that pulls signal metadata out of ECU binaries to generate A2L calibration files. Around day five the port stopped being a port: the reference implementation I was matching turned out to be <strong>incomplete itself</strong>, missing array expansions and resolving some types wrongly. DWARF is a graph of type relationships linked by <code>DW_AT_type</code>, not a flat list, so extracting it correctly means walking that graph rather than reading it.</p>
+            <div class="tags"><span class="tag">C++</span><span class="tag">libelf / libdw</span><span class="tag">A2L / ASAP2</span><span class="tag">XCP over CAN</span></div>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Qt5 test-automation application</h3><span class="status live">Shipped</span></div>
+            <p>A full production desktop application, not a widget: deploy a ROS 2 package to a target over SSH, run it, then collect and package the artifacts it produced. I later reviewed my own tool and found a <strong>mutex race on a shared message queue</strong>, a dangling raw-pointer capture in a Qt message handler, a singleton with no cleanup path, and a base-class method still named <code>GetRadarName()</code> after a copy-paste, so a Camera subclass answered with "Camera" from a method named for radar.</p>
+            <div class="tags"><span class="tag">Qt5</span><span class="tag">libssh</span><span class="tag">ROS 2</span><span class="tag">code review</span></div>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Camera pipeline &amp; Around View Monitor</h3><span class="status live">Shipped</span></div>
+            <p>Camera bring-up on a Horizon Robotics J6 E/M SoC: H.264 stream parsing and undistortion accelerated on the VP hardware, then a standalone library stitching <strong>four live feeds</strong> into a real-time bird's-eye view. The algorithm was never the hard part. Hidden dependencies, intrinsics buried inside a calibration library and a millisecond-level budget were.</p>
+            <div class="tags"><span class="tag">C++</span><span class="tag">H.264</span><span class="tag">Horizon J6 E/M</span><span class="tag">real-time</span></div>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Alfred &amp; Kiyan, humanoid robots</h3><span class="status">Two generations</span></div>
+            <p>Alfred came first, a wooden-frame prototype built on almost no budget, and became my bachelor's thesis platform, <strong class="mark">graded 20/20</strong>. Kiyan was the fully 3D-printed successor: 16 servos giving four degrees of freedom per hand, four DC encoder motors, on-device face and emotion recognition, and a Python GUI for a face. Its 16 status LEDs run as four groups on four GPIO pins, so one dead LED cannot take the chain down with it.</p>
+            <div class="tags"><span class="tag">bare-metal</span><span class="tag">sensor fusion</span><span class="tag">on-device AI</span><span class="tag">3D printing</span></div>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Self-checkout smart cart</h3><span class="status live">Shipped</span></div>
+            <p>Four cameras, weight sensors, a colour sensor for checkout-lane detection and a touchscreen showing a running total, all behind a state machine that had to catch item-swap fraud in real time. It began as pure object detection and that approach <strong>broke at retail-catalogue scale</strong>, so we pivoted to barcode plus weight fusion. UART latency between the MCU and the host was cut by <strong class="mark">50%</strong>.</p>
+            <div class="tags"><span class="tag">computer vision</span><span class="tag">sensor fusion</span><span class="tag">state machines</span><span class="tag">UART</span></div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RECORD ==================== -->
+  <section id="record">
+    <div class="wrap sec">
+      <div class="gut"><span class="num">fig. 03</span><div class="rule"></div></div>
+      <div>
+        <h2>Record</h2>
+        <p class="sec-intro">Promoted into a lead role at each of my two previous employers.</p>
+
+        <div class="entry">
+          <div class="head">
+            <h3>Embedded Software Engineer, SoC department</h3>
+            <span class="when">Jul 2025 →</span>
+          </div>
+          <p class="where">SoftwareMotion Co., Ltd. · Shanghai-based, remote</p>
+          <ul>
+            <li>Own the <strong>Execution Manager</strong> and the <strong>alarm mechanism</strong> of an L4 autonomous stack, from architecture through several rounds of single-responsibility refactoring as the requirements moved under me.</li>
+            <li>Built the recorder and config-snapshot submodules that make a recorded drive <strong>reproducibly replayable</strong>: the ROS 2 bag subprocess is managed by fork and execl with an atomic recording flag, and shut down with SIGINT and waitpid rather than killed.</li>
+            <li>Ported a DWARF signal extractor from Python to C++ for the ECU calibration toolchain, and found the reference implementation it was measured against was itself incomplete.</li>
+            <li>Wrote a Qt5 deploy, run and collect application over SSH, then reviewed it and reported a <strong>mutex race on a shared message queue</strong> and a dangling raw-pointer capture inside a Qt message handler.</li>
+            <li>Evaluated OTA servers and deployed <strong>Eclipse hawkBit</strong> in Docker with MySQL and RabbitMQ, validating a colleague's C++ client against all 11 DDI endpoints.</li>
+            <li>Daily stand-ups and weekly goal cycles with a team split across two countries, working in English throughout.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="head">
+            <h3>Embedded Systems Lead</h3>
+            <span class="when">Dec 2021 – Jun 2025</span>
+          </div>
+          <p class="where">ZLab, FANAP Advanced Technologies Laboratory · Pardis Technology Park, Tehran</p>
+          <ul>
+            <li>Technical lead coordinating firmware, back end, AI, front end, Android and industrial design across a <strong>connected-vehicle fleet platform</strong> and a <strong>connected-worker safety system</strong> deployed in an underground mine.</li>
+            <li>Reduced UART latency between MCU and host by <strong class="mark">50%</strong>, and improved wearable vital-sign reliability by 25% under sustained movement.</li>
+            <li>Co-built two generations of a humanoid robot, and shipped a self-checkout smart cart whose architecture we changed on evidence when object detection failed at catalogue scale.</li>
+            <li>Represented FANAP at the IMIDRO Digital Mining Transformation conference, including B2B meetings.</li>
+            <li>Set up CI for automated versioning and changelog generation, and ran weekly planning in Jira.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="head">
+            <h3>Robotics Instructor → Academy Head</h3>
+            <span class="when">Nov 2018 – Feb 2022</span>
+          </div>
+          <p class="where">Mositto Innovation Center · Tehran</p>
+          <ul>
+            <li>Mentored <strong>150+ students aged 10 to 22</strong>, co-wrote the curriculum from scratch, and trained the instructors who taught it. For the first six months I was learning robotics myself, roughly one week ahead of the class.</li>
+            <li>Led seven competition groups across the Rescue Line, Maze, Soccer and CoSpace leagues, and mentored two of them to <strong class="mark">third place at RoboCup Asia-Pacific 2021</strong> in Aichi, Japan, one Primary and one Secondary, in the same year.</li>
+            <li>Built ZIGA, a modular rescue-line robot used for competition training, and redesigned its sensor array to run on <strong>7 sensors instead of 16</strong> through fusion.</li>
+            <li>Judged the Technology Olympiad at Pardis Science and Technology Park.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KIT ==================== -->
+  <section id="kit">
+    <div class="wrap sec">
+      <div class="gut"><span class="num">fig. 04</span><div class="rule"></div></div>
+      <div>
+        <h2>Kit</h2>
+        <p class="sec-intro">What I reach for. The first item in each row is where I am strongest.</p>
+        <dl class="kit">
+          <div class="row"><dt>Languages</dt><dd>
+            <span class="tag">C++</span><span class="tag">Embedded C</span><span class="tag">Python</span><span class="tag">Bash</span>
+          </dd></div>
+          <div class="row"><dt>Runtime</dt><dd>
+            <span class="tag">ROS 2</span><span class="tag">DDS</span><span class="tag">FreeRTOS</span><span class="tag">Qt5</span><span class="tag">Docker</span>
+          </dd></div>
+          <div class="row"><dt>Architecture</dt><dd>
+            <span class="tag">MAPE-K / self-adaptive</span><span class="tag">component lifecycle</span><span class="tag">SOLID</span><span class="tag">design patterns</span><span class="tag">real-time constraints</span>
+          </dd></div>
+          <div class="row"><dt>Telemetry</dt><dd>
+            <span class="tag">MQTT</span><span class="tag">REST</span><span class="tag">SSH / libssh</span><span class="tag">LoRaWAN</span><span class="tag">UWB two-way ranging</span><span class="tag">CAN</span><span class="tag">BLE</span>
+          </dd></div>
+          <div class="row"><dt>Bench</dt><dd>
+            <span class="tag">Linux</span><span class="tag">CMake</span><span class="tag">colcon</span><span class="tag">Git</span><span class="tag">GitLab CI</span><span class="tag">Jenkins</span><span class="tag">GDB</span><span class="tag">gtest</span><span class="tag">Foxglove</span>
+          </dd></div>
+          <div class="row"><dt>Silicon</dt><dd>
+            <span class="tag">Horizon Robotics J6 E/M</span><span class="tag">MDC610</span><span class="tag">ARM</span><span class="tag">NVIDIA Jetson</span><span class="tag">ESP32</span><span class="tag">Raspberry Pi</span>
+          </dd></div>
+          <div class="row"><dt>Working</dt><dd>
+            <span class="tag">Scrum</span><span class="tag">code review</span><span class="tag">merge-request workflow</span><span class="tag">cross-timezone teams</span><span class="tag">technical writing</span>
+          </dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TEACHING ==================== -->
+  <section id="teaching">
+    <div class="wrap sec">
+      <div class="gut"><span class="num">fig. 05</span><div class="rule"></div></div>
+      <div>
+        <h2>Margin notes</h2>
+        <p class="sec-intro">The part of the work that is not in a repository.</p>
+        <div class="grid g3">
+          <article class="box">
+            <div class="figtag"><h3>Teaching, 150+ students</h3><span class="fig">5a</span></div>
+            <p>Four years of it, from ten-year-olds wiring their first line follower to university students preparing for RoboCup. It is where I learned to explain a system to someone who does not yet share my vocabulary, which turns out to be most of the job.</p>
+          </article>
+          <article class="box">
+            <div class="figtag"><h3>Life · Robots · Liberty</h3><span class="fig">5b</span></div>
+            <p>A free Persian-language robotics series on YouTube, running since 2022. I made it because no proper free resource existed in Persian for learning the basics, and the people who needed one most were never going to pay for a class.</p>
+          </article>
+          <article class="box">
+            <div class="figtag"><h3>B.Sc. Robotics Engineering</h3><span class="fig">5c</span></div>
+            <p>Azad University, Central Tehran Branch, 2016 to 2022. A four-year accredited programme, 154 credits, <strong>first rank in my cohort</strong>. Thesis: a wheeled humanoid robot as a platform for AI-based services, graded 20/20.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <div class="closing" id="contact">
+    <div class="wrap sec">
+      <div class="gut"><span class="num">fig. 06</span><div class="rule"></div></div>
+      <div>
+        <h2>Get in touch</h2>
+        <p>Happy to talk about ROS 2 runtime design, fault handling, or anything that has to keep running when nobody is watching. The fastest way to reach me is email.</p>
+        <div class="contactline">
+          <a class="primary" href="mailto:mersadmasoud@gmail.com">mersadmasoud@gmail.com</a>
+          <a href="https://github.com/mersious">GitHub</a>
+          <a href="https://www.linkedin.com/in/mersad-masoud">LinkedIn</a>
+        </div>
+        <span class="note">Persian (native) · English (daily working language)</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Mersad Masoud · rev. <span id="year">2026</span></span>
+    <span>Written by hand. No framework, no build step.</span>
+    <span><a href="https://github.com/mersious/mersious.github.io">Source</a></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function current() {
+      return root.getAttribute('data-theme') || (prefersDark ? 'dark' : 'light');
+    }
+    function label() {
+      btn.textContent = current() === 'dark' ? 'Light' : 'Dark';
+    }
+    label();
+
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      label();
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+
+</body>
+</html>
