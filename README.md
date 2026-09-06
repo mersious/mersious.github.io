@@ -1,6 +1,6 @@
 # mersious.github.io
 
-Source of my personal site — <https://mersious.github.io>.
+Source of my personal site: <https://mersious.github.io>.
 
 A single hand-written `index.html`: no framework, no build step, no external
 requests except my GitHub avatar. Light and dark themes follow the visitor's
