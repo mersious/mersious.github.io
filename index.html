@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mersad Masoud — Embedded &amp; Robotics Engineer</title>
-<meta name="description" content="Embedded engineer working on the runtime layer of an L4 autonomous driving stack — ROS 2, C++, Linux. Previously robotics and industrial IoT lead. Robotics instructor before that.">
+<title>Mersad Masoud, Embedded &amp; Robotics Engineer</title>
+<meta name="description" content="Embedded engineer working on the runtime layer of an L4 autonomous driving stack in C++ on ROS 2 and Linux. Previously robotics and industrial IoT lead, and a robotics instructor before that.">
 <meta name="author" content="Mersad Masoud">
-<meta property="og:title" content="Mersad Masoud — Embedded &amp; Robotics Engineer">
+<meta property="og:title" content="Mersad Masoud, Embedded &amp; Robotics Engineer">
 <meta property="og:description" content="I build the runtime layer that keeps autonomous systems alive, observable, and reproducible.">
 <meta property="og:type" content="profile">
 <meta property="og:image" content="https://github.com/mersious.png">
@@ -125,7 +125,7 @@
   .tb-grid{display:grid; grid-template-columns:1.25fr 1fr; gap:48px; align-items:center}
   @media(max-width:820px){ .tb-grid{grid-template-columns:1fr; gap:34px} }
 
-  /* the red margin annotation — the notebook's whole personality */
+  /* the red margin annotation: the notebook's whole personality */
   .note{
     font-family:var(--mono); font-size:12px; line-height:1.5; color:var(--accent);
     display:block; margin-top:14px; padding-left:20px; position:relative;
@@ -201,6 +201,8 @@
     background:var(--paper-2); border:1px solid var(--rule-strong);
     padding:18px 18px 16px; position:relative; display:flex; flex-direction:column; gap:9px;
   }
+  .box.wide{grid-column:1 / -1}
+  .box.wide .note{margin-top:2px}
   .box::after{
     content:""; position:absolute; right:-1px; bottom:-1px; width:16px; height:16px;
     background:linear-gradient(225deg, var(--paper) 50%, var(--rule-strong) 50%);
@@ -222,6 +224,7 @@
     color:var(--ink-3); white-space:nowrap; border:1px solid var(--rule); padding:2px 6px;
   }
   .status.live{color:var(--accent); border-color:var(--accent)}
+  code{font-family:var(--mono); font-size:.86em; background:var(--paper-3); border:1px solid var(--rule); padding:0 4px}
 
   /* ---------------- ledger (experience) ---------------- */
   .entry{padding:22px 0; border-bottom:1px solid var(--rule)}
@@ -234,7 +237,7 @@
   .entry ul{margin:0; padding-left:0; list-style:none; color:var(--ink-2); font-size:15.7px}
   .entry li{margin-bottom:8px; padding-left:20px; position:relative}
   .entry li::before{
-    content:"—"; position:absolute; left:0; color:var(--rule-strong); font-family:var(--mono);
+    content:"\2013"; position:absolute; left:0; color:var(--rule-strong); font-family:var(--mono);
   }
   .entry li strong{color:var(--ink); font-weight:600}
 
@@ -285,7 +288,7 @@
       <div class="docline">
         <span class="stamp">Embedded &amp; Robotics Engineer</span>
         <span class="stamp">Est. 2018</span>
-        <span class="stamp">Tehran → Shanghai, remote</span>
+        <span class="stamp">Tehran, working remote</span>
       </div>
 
       <h1>Mersad Masoud</h1>
@@ -294,14 +297,15 @@
       <div class="tb-grid">
         <div>
           <p class="thesis">I build the runtime layer that keeps autonomous systems alive, observable, and reproducible.</p>
-          <span class="note">the part nobody demos — and the first thing you miss at 2 a.m. on a test track</span>
+          <span class="note">the part nobody demos, and the first thing you miss at 2 a.m. on a test track</span>
 
           <p class="lede">
             Right now that means the platform software of an <strong>L4 autonomous driving stack</strong>:
             component lifecycle management, fault and health monitoring, and recording that lets a real
-            drive be replayed exactly as it happened. Before that I led embedded development for a
-            connected-vehicle fleet platform and a worker-safety system deployed in an underground mine.
-            I have been building robots since 2018, and teaching people to build them for almost as long.
+            drive be replayed exactly as it happened. Before that I led embedded development at ZLab for
+            a connected-vehicle fleet platform, a worker-safety system deployed in an underground mine,
+            and two generations of a humanoid robot. I have been building robots since 2018, and teaching
+            people to build them for almost as long.
           </p>
 
           <div class="contactline">
@@ -364,7 +368,7 @@
             <text x="138" y="148" class="lbl sm" text-anchor="middle">artifact log</text>
 
             <!-- red marginalia -->
-            <text x="20" y="16" class="acc-t">Fig. 1 — Execution Manager</text>
+            <text x="20" y="16" class="acc-t">Fig. 1 · Execution Manager</text>
             <path d="M262,64 C288,66 292,86 276,96" class="acc-s thin" fill="none" marker-end="url(#ah-r)"/>
             <text x="266" y="58" class="acc-t sm">passive checks</text>
             <text x="266" y="69" class="acc-t sm">→ active channel</text>
@@ -382,19 +386,19 @@
             <path d="M256,257 L256,267" class="acc-s thin"/>
             <text x="137" y="278" class="acc-t sm" text-anchor="middle">1 Hz heartbeat + on-change</text>
           </svg>
-          <figcaption class="stamp">Fig. 1 — redrawn from the real thing</figcaption>
+          <figcaption class="stamp">Fig. 1 · redrawn from the real thing</figcaption>
         </figure>
       </div>
 
       <dl class="spec">
         <div class="row"><dt>Role</dt><dd>Embedded Software Engineer, <b>SoC department</b></dd></div>
-        <div class="row"><dt>Domain</dt><dd>Autonomous driving runtime · robotics · industrial IoT</dd></div>
+        <div class="row"><dt>Based</dt><dd>Tehran, remote for a Shanghai-based automotive company</dd></div>
         <div class="row"><dt>Primary</dt><dd><b>C++</b> · Embedded C · Python · Bash</dd></div>
         <div class="row"><dt>Runtime</dt><dd>ROS 2 · DDS · FreeRTOS · Linux · Docker</dd></div>
-        <div class="row"><dt>Years</dt><dd><b>7+</b> in embedded and robotics</dd></div>
+        <div class="row"><dt>Since</dt><dd><b>2018</b> in robotics and embedded systems</dd></div>
         <div class="row"><dt>Taught</dt><dd><b>150+</b> students, 2018 → 2022</dd></div>
       </dl>
-      <p class="stamp spec-cap">Table 1 — summary</p>
+      <p class="stamp spec-cap">Table 1 · summary</p>
     </div>
   </div>
 
@@ -414,12 +418,12 @@
 
           <article class="box">
             <div class="figtag"><h3>Fault &amp; alarm mechanism</h3><span class="fig">1b</span></div>
-            <p>A mutex-guarded persistent fault registry keyed by node and error code, with lifecycle state derived from first-seen and last-seen timestamps, and <strong>three recovery models</strong> for terminal, transient and channel faults — plus a 1 Hz warning heartbeat for vehicle-facing consumers.</p>
+            <p>A mutex-guarded persistent fault registry keyed by node and error code, with lifecycle state derived from first-seen and last-seen timestamps, and <strong>three recovery models</strong> for terminal, transient and channel faults, plus a 1 Hz warning heartbeat for vehicle-facing consumers.</p>
           </article>
 
           <article class="box">
             <div class="figtag"><h3>Recording &amp; replay</h3><span class="fig">1c</span></div>
-            <p>Subprocess lifecycle management for session recording — fork/execl, PID and atomic state tracking, clean SIGINT shutdown — with time-based splitting, topic filtering and timestamped calibration snapshots, so a recorded drive can be <strong>re-simulated exactly</strong>.</p>
+            <p>Subprocess lifecycle management for session recording (fork and execl, PID and atomic state tracking, a clean SIGINT and waitpid shutdown) with time-based splitting, topic filtering and timestamped configuration and calibration snapshots, so a recorded drive can be <strong>re-simulated exactly</strong>.</p>
           </article>
 
         </div>
@@ -433,43 +437,75 @@
       <div class="gut"><span class="num">fig. 02</span><div class="rule"></div></div>
       <div>
         <h2>Specimens</h2>
-        <p class="sec-intro">Systems I owned end to end — from the sensor on the board to the dashboard someone actually watches.</p>
+        <p class="sec-intro">Systems I owned end to end, from the sensor on the board to the dashboard someone actually watches.</p>
+        <span class="note" style="margin-bottom:22px">"often the problem isn't with the code itself; it's a mischievous micro SD card"</span>
         <div class="grid g2">
 
-          <article class="box">
-            <div class="figtag"><h3>Mashinak</h3><span class="status">In progress</span></div>
-            <p>A personal project I am building in the open. Details and the repository are on their way — this page will link to it as soon as the first version ships.</p>
-            <div class="tags"><span class="tag">side project</span><span class="tag">coming soon</span></div>
+          <article class="box wide">
+            <div class="figtag">
+              <h3><a href="https://mersious.github.io/Mashinak/">Mashinak</a></h3>
+              <span class="status live">Live · MIT</span>
+            </div>
+            <p>
+              An interactive map of what a car does for its driver, from SAE Level 0 to Level 5.
+              A brochure gives you a flat wall of acronyms, ESP and EBA and HAC and TJA, and no way in.
+              Mashinak turns that wall into something you can click through: pick a level, pick a feature,
+              and see what it senses, where the decision is made, what it moves, and which other features
+              it depends on. Every feature is drawn as <strong>senses → decided in → acts through</strong>,
+              which is the part brochures hide. <strong class="mark">AEB does not brake. It asks the ESC unit to brake.</strong>
+            </p>
+            <p>
+              The Global view is pure engineering; EU, US and CN overlay the regulatory regime per level,
+              with rule numbers, so a feature that is mandatory in one market and merely permitted in
+              another says so. State lives in the URL, so <code>#eu/L3/ALKS</code> is a link you can send
+              someone. The whole content set is typed data in <code>src/data/</code>, ids as string-literal
+              unions, which means <strong>a typo in a dependency fails the build</strong> instead of quietly
+              breaking the graph.
+            </p>
+            <span class="note">it exists because engineers join automotive projects every day without ever having been told what ESC actually is</span>
+            <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">SAE J3016</span><span class="tag">UN R157 / GSR</span><span class="tag">data-driven</span><span class="tag">no backend</span></div>
           </article>
 
           <article class="box">
-            <div class="figtag"><h3>Connected-worker mine safety</h3><span class="status live">Deployed</span></div>
-            <p>A smart helmet and wristband for an underground lead-and-zinc mine: FreeRTOS-based UWB positioning by two-way ranging at <strong class="mark">30 cm accuracy</strong>, LoRaWAN telemetry, and vital-sign monitoring streamed to a central dashboard. Heart-rate and blood-oxygen measurement improved by 25% under sustained movement. Three hardware generations, each shaped by on-site feedback.</p>
-            <div class="tags"><span class="tag">FreeRTOS</span><span class="tag">UWB</span><span class="tag">LoRaWAN</span><span class="tag">PCB</span><span class="tag">field-deployed</span></div>
+            <div class="figtag"><h3>Connected Worker: mine safety</h3><span class="status live">Deployed</span></div>
+            <p>A two-device ecosystem for an underground lead and zinc mine in Zanjan: a smart helmet doing gas, temperature and environmental sensing, and a wristband doing <strong class="mark">UWB positioning at 30 cm</strong> with LoRaWAN telemetry and vital-sign monitoring. Fielded as v1, redesigned from real worker feedback, demonstrated again as v2. The hardest constraint was not radio: the band had to be nearly weightless for people doing heavy physical labour, while motion artifacts corrupted exactly the readings it existed to take.</p>
+            <div class="tags"><span class="tag">FreeRTOS</span><span class="tag">UWB</span><span class="tag">LoRaWAN</span><span class="tag">PCB, 2-4 layer</span><span class="tag">field-deployed</span></div>
           </article>
 
           <article class="box">
-            <div class="figtag"><h3>Connected-vehicle fleet platform</h3><span class="status live">Deployed</span></div>
-            <p>An in-vehicle tracker (ESP32, IMU/GNSS fusion, cellular modem) and the MQTT telemetry path feeding a real-time operator dashboard, with collision prediction and drowsiness detection. QoS levels were tuned by driving a fixed intercity route <strong class="mark">more than twenty times</strong> — most failures traced back to antenna sensitivity and counterfeit modules rather than to software.</p>
-            <div class="tags"><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">sensor fusion</span><span class="tag">field testing</span></div>
+            <div class="figtag"><h3>Connected Car: fleet management</h3><span class="status live">Deployed</span></div>
+            <p>Technical lead across firmware, back end, AI, front end and Android. I owned the in-vehicle tracker (ESP32, IMU and GNSS fusion, cellular modem) and the MQTT path feeding a real-time dashboard, with collision prediction at intersections and drowsiness detection behind it. QoS and link behaviour were tuned by driving the Pardis to Tehran route <strong class="mark">more than twenty times</strong>. Most failures traced back to GSM antenna sensitivity and counterfeit modules rather than to software.</p>
+            <div class="tags"><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">sensor fusion</span><span class="tag">Kafka</span><span class="tag">field testing</span></div>
           </article>
 
           <article class="box">
-            <div class="figtag"><h3>Around View Monitor</h3><span class="status live">Shipped</span></div>
-            <p>Camera bring-up on a Horizon Robotics J6 E/M SoC — H.264 parsing and hardware-accelerated undistortion — plus a standalone library that stitches <strong>four live camera feeds</strong> into a real-time bird's-eye view, inside strict performance and safety budgets.</p>
-            <div class="tags"><span class="tag">C++</span><span class="tag">computer vision</span><span class="tag">Horizon J6</span><span class="tag">real-time</span></div>
+            <div class="figtag"><h3>ELF/DWARF signal extractor</h3><span class="status live">Shipped</span></div>
+            <p>A C++ port of a Python DWARF parser that pulls signal metadata out of ECU binaries to generate A2L calibration files. Around day five the port stopped being a port: the reference implementation I was matching turned out to be <strong>incomplete itself</strong>, missing array expansions and resolving some types wrongly. DWARF is a graph of type relationships linked by <code>DW_AT_type</code>, not a flat list, so extracting it correctly means walking that graph rather than reading it.</p>
+            <div class="tags"><span class="tag">C++</span><span class="tag">libelf / libdw</span><span class="tag">A2L / ASAP2</span><span class="tag">XCP over CAN</span></div>
           </article>
 
           <article class="box">
-            <div class="figtag"><h3>Calibration visualisation</h3><span class="status live">Shipped</span></div>
-            <p>Raw camera and LiDAR calibration parameters turned into 3D scene geometry in Foxglove, so sensor placement on the vehicle can be <em>seen</em> rather than inferred from a YAML file — a small tool that quietly removed a whole class of debugging mistakes.</p>
-            <div class="tags"><span class="tag">ROS 2</span><span class="tag">Foxglove</span><span class="tag">tooling</span></div>
+            <div class="figtag"><h3>Qt5 test-automation application</h3><span class="status live">Shipped</span></div>
+            <p>A full production desktop application, not a widget: deploy a ROS 2 package to a target over SSH, run it, then collect and package the artifacts it produced. I later reviewed my own tool and found a <strong>mutex race on a shared message queue</strong>, a dangling raw-pointer capture in a Qt message handler, a singleton with no cleanup path, and a base-class method still named <code>GetRadarName()</code> after a copy-paste, so a Camera subclass answered with "Camera" from a method named for radar.</p>
+            <div class="tags"><span class="tag">Qt5</span><span class="tag">libssh</span><span class="tag">ROS 2</span><span class="tag">code review</span></div>
           </article>
 
           <article class="box">
-            <div class="figtag"><h3>Wheeled humanoid platform</h3><span class="status">Research</span></div>
-            <p>Two generations of a small humanoid robot: bare-metal firmware driving 16 servos and 4 DC encoder motors with fused onboard sensing for real-time obstacle avoidance, later a platform for on-device AI services. The first generation became my bachelor's thesis, <strong class="mark">graded 20/20</strong>.</p>
-            <div class="tags"><span class="tag">bare-metal</span><span class="tag">sensor fusion</span><span class="tag">on-device AI</span></div>
+            <div class="figtag"><h3>Camera pipeline &amp; Around View Monitor</h3><span class="status live">Shipped</span></div>
+            <p>Camera bring-up on a Horizon Robotics J6 E/M SoC: H.264 stream parsing and undistortion accelerated on the VP hardware, then a standalone library stitching <strong>four live feeds</strong> into a real-time bird's-eye view. The algorithm was never the hard part. Hidden dependencies, intrinsics buried inside a calibration library and a millisecond-level budget were.</p>
+            <div class="tags"><span class="tag">C++</span><span class="tag">H.264</span><span class="tag">Horizon J6 E/M</span><span class="tag">real-time</span></div>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Alfred &amp; Kiyan, humanoid robots</h3><span class="status">Two generations</span></div>
+            <p>Alfred came first, a wooden-frame prototype built on almost no budget, and became my bachelor's thesis platform, <strong class="mark">graded 20/20</strong>. Kiyan was the fully 3D-printed successor: 16 servos giving four degrees of freedom per hand, four DC encoder motors, on-device face and emotion recognition, and a Python GUI for a face. Its 16 status LEDs run as four groups on four GPIO pins, so one dead LED cannot take the chain down with it.</p>
+            <div class="tags"><span class="tag">bare-metal</span><span class="tag">sensor fusion</span><span class="tag">on-device AI</span><span class="tag">3D printing</span></div>
+          </article>
+
+          <article class="box">
+            <div class="figtag"><h3>Self-checkout smart cart</h3><span class="status live">Shipped</span></div>
+            <p>Four cameras, weight sensors, a colour sensor for checkout-lane detection and a touchscreen showing a running total, all behind a state machine that had to catch item-swap fraud in real time. It began as pure object detection and that approach <strong>broke at retail-catalogue scale</strong>, so we pivoted to barcode plus weight fusion. UART latency between the MCU and the host was cut by <strong class="mark">50%</strong>.</p>
+            <div class="tags"><span class="tag">computer vision</span><span class="tag">sensor fusion</span><span class="tag">state machines</span><span class="tag">UART</span></div>
           </article>
 
         </div>
@@ -490,40 +526,43 @@
             <h3>Embedded Software Engineer, SoC department</h3>
             <span class="when">Jul 2025 →</span>
           </div>
-          <p class="where">Software Motion Co., Ltd. — Shanghai-based, remote</p>
+          <p class="where">SoftwareMotion Co., Ltd. · Shanghai-based, remote</p>
           <ul>
-            <li>Own the <strong>Execution Manager</strong> and the <strong>fault and alarm mechanism</strong> of an L4 autonomous stack, from architecture through several rounds of single-responsibility refactoring as requirements evolved.</li>
-            <li>Built session recording and calibration snapshotting that makes recorded drives <strong>reproducibly replayable</strong>, and a Qt5 desktop tool for remote deployment, execution and artifact collection over SSH.</li>
-            <li>Ran an independent review of that tool and found a <strong>mutex race on a shared message queue</strong> and a dangling raw-pointer capture inside a Qt log handler.</li>
-            <li>Evaluated OTA update servers and deployed <strong>Eclipse hawkBit</strong> in Docker with MySQL and RabbitMQ, validating a colleague's C++ client against all 11 DDI REST endpoints.</li>
-            <li>Daily stand-ups and weekly goal cycles with a distributed team across two countries, working in English throughout.</li>
+            <li>Own the <strong>Execution Manager</strong> and the <strong>alarm mechanism</strong> of an L4 autonomous stack, from architecture through several rounds of single-responsibility refactoring as the requirements moved under me.</li>
+            <li>Built the recorder and config-snapshot submodules that make a recorded drive <strong>reproducibly replayable</strong>: the ROS 2 bag subprocess is managed by fork and execl with an atomic recording flag, and shut down with SIGINT and waitpid rather than killed.</li>
+            <li>Ported a DWARF signal extractor from Python to C++ for the ECU calibration toolchain, and found the reference implementation it was measured against was itself incomplete.</li>
+            <li>Wrote a Qt5 deploy, run and collect application over SSH, then reviewed it and reported a <strong>mutex race on a shared message queue</strong> and a dangling raw-pointer capture inside a Qt message handler.</li>
+            <li>Evaluated OTA servers and deployed <strong>Eclipse hawkBit</strong> in Docker with MySQL and RabbitMQ, validating a colleague's C++ client against all 11 DDI endpoints.</li>
+            <li>Daily stand-ups and weekly goal cycles with a team split across two countries, working in English throughout.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="head">
-            <h3>Robotics &amp; Embedded Engineer → Embedded Systems Lead</h3>
+            <h3>Embedded Systems Lead</h3>
             <span class="when">Dec 2021 – Jun 2025</span>
           </div>
-          <p class="where">ZLab, FANAP Advanced Technologies Laboratory — Pardis Technology Park, Tehran</p>
+          <p class="where">ZLab, FANAP Advanced Technologies Laboratory · Pardis Technology Park, Tehran</p>
           <ul>
-            <li>Led embedded development for a <strong>connected-vehicle fleet platform</strong> and a <strong>connected-worker safety system</strong> deployed in an underground mine.</li>
-            <li>Reduced UART communication latency by <strong class="mark">50%</strong> on the embedded platform, and improved wearable vital-sign reliability by 25% under movement.</li>
-            <li>Technical lead coordinating front-end, back-end, AI, Android and industrial-design teams; ran weekly planning in Jira and set up CI for automated versioning and changelog generation.</li>
-            <li>Built embedded software for a self-checkout smart cart — camera, weight and colour sensor fusion behind a real-time state machine.</li>
+            <li>Technical lead coordinating firmware, back end, AI, front end, Android and industrial design across a <strong>connected-vehicle fleet platform</strong> and a <strong>connected-worker safety system</strong> deployed in an underground mine.</li>
+            <li>Reduced UART latency between MCU and host by <strong class="mark">50%</strong>, and improved wearable vital-sign reliability by 25% under sustained movement.</li>
+            <li>Co-built two generations of a humanoid robot, and shipped a self-checkout smart cart whose architecture we changed on evidence when object detection failed at catalogue scale.</li>
+            <li>Represented FANAP at the IMIDRO Digital Mining Transformation conference, including B2B meetings.</li>
+            <li>Set up CI for automated versioning and changelog generation, and ran weekly planning in Jira.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="head">
-            <h3>Robotics Instructor → Competition Coach → Academy Head</h3>
+            <h3>Robotics Instructor → Academy Head</h3>
             <span class="when">Nov 2018 – Feb 2022</span>
           </div>
-          <p class="where">Mositto Innovation Center — Tehran</p>
+          <p class="where">Mositto Innovation Center · Tehran</p>
           <ul>
-            <li>Taught and mentored <strong>150+ students aged 10–22</strong>, and co-developed the robotics and programming curriculum from scratch.</li>
-            <li>Coached teams to <strong class="mark">two third-place finishes at RoboCup Asia-Pacific 2021</strong> (Aichi, Japan), in the Primary and Secondary divisions.</li>
-            <li>Redesigned a rescue line-follower's sensor array using sensor fusion, cutting the sensor count from 16 to 7 with no loss of performance.</li>
+            <li>Mentored <strong>150+ students aged 10 to 22</strong>, co-wrote the curriculum from scratch, and trained the instructors who taught it. For the first six months I was learning robotics myself, roughly one week ahead of the class.</li>
+            <li>Led seven competition groups across the Rescue Line, Maze, Soccer and CoSpace leagues, and mentored two of them to <strong class="mark">third place at RoboCup Asia-Pacific 2021</strong> in Aichi, Japan, one Primary and one Secondary, in the same year.</li>
+            <li>Built ZIGA, a modular rescue-line robot used for competition training, and redesigned its sensor array to run on <strong>7 sensors instead of 16</strong> through fusion.</li>
+            <li>Judged the Technology Olympiad at Pardis Science and Technology Park.</li>
           </ul>
         </div>
 
@@ -574,16 +613,16 @@
         <p class="sec-intro">The part of the work that is not in a repository.</p>
         <div class="grid g3">
           <article class="box">
-            <div class="figtag"><h3>150+ students</h3><span class="fig">5a</span></div>
-            <p>Four years of robotics teaching, from ten-year-olds building their first line follower to university students preparing for RoboCup. It is where I learned to explain a system to someone who does not yet share my vocabulary.</p>
+            <div class="figtag"><h3>Teaching, 150+ students</h3><span class="fig">5a</span></div>
+            <p>Four years of it, from ten-year-olds wiring their first line follower to university students preparing for RoboCup. It is where I learned to explain a system to someone who does not yet share my vocabulary, which turns out to be most of the job.</p>
           </article>
           <article class="box">
             <div class="figtag"><h3>Life · Robots · Liberty</h3><span class="fig">5b</span></div>
-            <p>A free Persian-language robotics series on YouTube, started for a simple reason: no comparable free resource existed in Persian, and the people who most needed one could not pay for it.</p>
+            <p>A free Persian-language robotics series on YouTube, running since 2022. I made it because no proper free resource existed in Persian for learning the basics, and the people who needed one most were never going to pay for a class.</p>
           </article>
           <article class="box">
             <div class="figtag"><h3>B.Sc. Robotics Engineering</h3><span class="fig">5c</span></div>
-            <p>Azad University, Central Tehran Branch, 2016–2022. Four-year accredited programme, 154 credits. <strong>First rank in my cohort</strong>; thesis on a wheeled humanoid robot as a platform for AI-based services.</p>
+            <p>Azad University, Central Tehran Branch, 2016 to 2022. A four-year accredited programme, 154 credits, <strong>first rank in my cohort</strong>. Thesis: a wheeled humanoid robot as a platform for AI-based services, graded 20/20.</p>
           </article>
         </div>
       </div>

@@ -16,11 +16,11 @@ easy to find:
 | Section    | What lives there                                  |
 | ---------- | ------------------------------------------------- |
 | Hero       | Name, one-line pitch, links, availability          |
-| Focus      | The three things I'm building right now            |
-| Work       | Project cards — add a new `<article class="card proj">` |
-| Experience | Timeline entries                                   |
-| Toolbox    | Skill rows                                         |
-| Beyond     | Teaching, open education, degree                   |
+| Now        | The three things I am building right now           |
+| Specimens  | Project cards, `<article class="box">`             |
+| Record     | Experience entries                                 |
+| Kit        | Skill rows                                         |
+| Margin     | Teaching, open education, degree                   |
 | Contact    | Email and profiles                                 |
 
 ### Adding a project
@@ -28,15 +28,19 @@ easy to find:
 Copy one card and change the text:
 
 ```html
-<article class="card proj">
-  <div class="top-row"><h3>Project name</h3><span class="status live">Deployed</span></div>
+<article class="box">
+  <div class="figtag"><h3>Project name</h3><span class="status live">Deployed</span></div>
   <p>One paragraph: what it does, and the one number or detail that makes it real.</p>
   <div class="tags"><span class="tag">C++</span><span class="tag">ROS 2</span></div>
 </article>
 ```
 
-`status` values used so far: `In progress`, `Deployed`, `Shipped`, `Research`.
-Add the class `live` to tint the badge with the accent colour.
+`status` values used so far: `Live`, `Deployed`, `Shipped`, `In progress`,
+`Two generations`. Add the class `live` to tint the badge with the accent colour,
+and `class="box wide"` to let a card span both columns.
+
+House style, carried over from every other document: **no em dashes.** Commas,
+colons and periods only.
 
 ## Local preview
 
